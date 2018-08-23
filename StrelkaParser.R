@@ -1,3 +1,4 @@
+#One version of VCF parsing - notably the slowest of the two
 parse_vcf_alt1 <- function(x) {
     vcf <- readr::read_tsv(x, comment = "##")
     vcf <- dplyr::rename(vcf, CHROM = `#CHROM`)
@@ -23,6 +24,7 @@ parse_vcf_alt1 <- function(x) {
     vcf
 }
 
+#Use this one to parse output - much faster than alt1
 parse_vcf_alt2 <- function(x) {
     vcf <- readr::read_tsv(x, comment = "##")
     vcf <- dplyr::rename(vcf, CHROM = `#CHROM`)
